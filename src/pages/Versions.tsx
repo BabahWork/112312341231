@@ -1,84 +1,46 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Versions = () => {
-  const versions = [
-    {
-      version: "2.0.0",
-      date: "March 2024",
-      changes: [
-        "Complete UI redesign",
-        "New dark theme",
-        "Improved code completion",
-        "Real-time collaboration features"
-      ]
-    },
-    {
-      version: "1.5.0",
-      date: "January 2024",
-      changes: [
-        "Added Git integration",
-        "Enhanced debugging tools",
-        "Performance improvements",
-        "New extension marketplace"
-      ]
-    },
-    {
-      version: "1.0.0",
-      date: "October 2023",
-      changes: [
-        "Initial release",
-        "Basic code editing features",
-        "Syntax highlighting",
-        "File management system"
-      ]
-    }
-  ];
+  const navigate = useNavigate();
 
   return (
-    <main className="bg-editor-dark min-h-screen pt-20">
+    <main className="min-h-screen bg-editor-dark pt-20">
       <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <div className="text-center py-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Version History
-            <span className="bg-gradient-to-r from-editor-purple to-editor-light bg-clip-text text-transparent">
-              {" "}
-              CDE
-            </span>
-          </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-            Track our journey of continuous improvement and innovation.
-          </p>
-        </div>
+        <Button 
+          variant="ghost" 
+          onClick={() => navigate(-1)}
+          className="mb-6 text-white hover:text-editor-purple"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </Button>
 
-        {/* Version Table */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-editor-purple">Version</TableHead>
-                <TableHead className="text-editor-purple">Release Date</TableHead>
-                <TableHead className="text-editor-purple">Changes</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {versions.map((version) => (
-                <TableRow key={version.version} className="border-editor-purple/20">
-                  <TableCell className="font-medium text-white">
-                    {version.version}
-                  </TableCell>
-                  <TableCell className="text-gray-400">{version.date}</TableCell>
-                  <TableCell>
-                    <ul className="list-disc list-inside text-gray-400">
-                      {version.changes.map((change, index) => (
-                        <li key={index}>{change}</li>
-                      ))}
-                    </ul>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+        <h1 className="text-4xl font-bold text-white mb-8">Version History</h1>
+        
+        <div className="space-y-6">
+          <div className="bg-editor-dark/50 border border-editor-purple/20 rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-white mb-2">Version 2.0.0</h2>
+            <p className="text-gray-400 mb-4">Released March 2024</p>
+            <ul className="list-disc list-inside text-gray-300">
+              <li>Complete UI redesign</li>
+              <li>New dark theme</li>
+              <li>Improved code completion</li>
+              <li>Real-time collaboration features</li>
+            </ul>
+          </div>
+
+          <div className="bg-editor-dark/50 border border-editor-purple/20 rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-white mb-2">Version 1.5.0</h2>
+            <p className="text-gray-400 mb-4">Released January 2024</p>
+            <ul className="list-disc list-inside text-gray-300">
+              <li>Added Git integration</li>
+              <li>Enhanced debugging tools</li>
+              <li>Performance improvements</li>
+              <li>New extension marketplace</li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>

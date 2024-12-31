@@ -15,7 +15,7 @@ const Navbar = () => {
           <Link to="/" className="text-gray-300 hover:text-white transition-colors">Features</Link>
           <Link to="/versions" className="text-gray-300 hover:text-white transition-colors">Versions</Link>
           <Link to="/download" className="text-gray-300 hover:text-white transition-colors">Download</Link>
-          <a href="#docs" className="text-gray-300 hover:text-white transition-colors">Docs</a>
+          <Link to="/documentation" className="text-gray-300 hover:text-white transition-colors">Docs</Link>
         </div>
 
         <div className="flex items-center space-x-4">

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Download from "./pages/Download";
 import Versions from "./pages/Versions";
+import Documentation from "./pages/Documentation";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/download" element={<Download />} />
           <Route path="/versions" element={<Versions />} />
+          <Route path="/documentation" element={<Documentation />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
